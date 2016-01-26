@@ -1,0 +1,21 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page - we use the @controllers syntax here so that the router knows we are referring to a class. In turn it
+# will call on the GlobalSettings.getController method to resolve the actual controller instance.
+
+GET     /									@com.frugalbin.inventory.airline.controllers.rest.Application.index
+
+GET 	/inventoryAirline/getCityList					@com.frugalbin.inventory.airline.controllers.rest.InventoryAirlineController.getCityList()
+
+POST	/inventoryAirline/getFlightSlotDetails			@com.frugalbin.inventory.airline.controllers.rest.InventoryAirlineController.getFlightSlotDetails()
+
+POST	/inventoryAirline/bookFlightTicket				@com.frugalbin.inventory.airline.controllers.rest.InventoryAirlineController.bookFlightTicket()
+
+# APIs/routes for INTERNAL USE
+# TODO: Need to add CORS Filter to restrict refreshDB api to be called from outside
+PUT		/inventoryAirline/secrete/refreshDB	@com.frugalbin.inventory.airline.controllers.rest.InventoryAirlineController.refreshDB()
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.at(path="/public", file)
