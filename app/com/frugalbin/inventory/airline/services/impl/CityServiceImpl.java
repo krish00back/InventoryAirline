@@ -28,4 +28,10 @@ public class CityServiceImpl implements CityServiceI
 	{
 		cityRepository.saveAndFlush(city);	
 	}
+
+	@Override
+	public City findCity(Long cityId)
+	{
+		return cityRepository.findOne(cityId);
+	}
 }
