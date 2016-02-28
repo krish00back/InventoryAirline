@@ -28,6 +28,6 @@ public class FlightSeatDetailsServiceImpl implements FlightSeatDetailsServiceI
 	{
 		Date startingTime = DateUtils.truncate(preferredTime, Calendar.DATE);
 		Date endTime = DateUtils.addMilliseconds(DateUtils.ceiling(preferredTime, Calendar.DATE), -1);
-		return repository.findByFlightInAndDepartureDateBetween(flightList, startingTime, endTime);
+		return repository.findByFlightInAndDepartureTimeBetween(flightList, startingTime, endTime);
 	}
 }

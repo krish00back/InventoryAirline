@@ -1,6 +1,7 @@
 package com.frugalbin.inventory.airline.controllers.rest;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -17,9 +18,9 @@ import com.frugalbin.inventory.airline.controllers.base.BaseController;
 import com.frugalbin.inventory.airline.controllers.dto.request.FlightListRequest;
 import com.frugalbin.inventory.airline.controllers.dto.response.CityBean;
 import com.frugalbin.inventory.airline.controllers.dto.response.FlightSlotBean;
+import com.frugalbin.inventory.airline.controllers.dto.response.Slots;
 import com.frugalbin.inventory.airline.exceptions.BusinessException;
 import com.frugalbin.inventory.airline.integration.InventoryAirlineInterface;
-import com.frugalbin.inventory.airline.models.FlightSeatDetails;
 
 @Named
 @Singleton
@@ -37,7 +38,7 @@ public class InventoryAirlineController extends BaseController
 	public Result getCityList()
 	{
 		LOGGER.info("Get City List started");
-		
+
 		List<CityBean> cityBeanList = inventoryAirlineInterface.getCityList();
 
 		LOGGER.info("Get City List ended: " + cityBeanList);
@@ -47,11 +48,10 @@ public class InventoryAirlineController extends BaseController
 	@BodyParser.Of(BodyParser.Json.class)
 	public Result getFlightSlotDetails()
 	{
-		List<FlightSlotBean> flightSlots;
+		Map<Slots, FlightSlotBean> flightSlots;
 		try
 		{
-			FlightListRequest request = convertRequestBodyToObject(request().body(),
-					FlightListRequest.class);
+			FlightListRequest request = convertRequestBodyToObject(request().body(), FlightListRequest.class);
 			flightSlots = inventoryAirlineInterface.getFlightSlots(request);
 		}
 		catch (BusinessException e)
@@ -66,17 +66,19 @@ public class InventoryAirlineController extends BaseController
 	@BodyParser.Of(BodyParser.Json.class)
 	public Result bookFlightTicket()
 	{
-//		try
-//		{
-//			SendCommunicationRequestDto request = convertRequestBodyToObject(request().body(),
-//					SendCommunicationRequestDto.class);
-//			communicationInterface.sendCommunication(request);
-//		}
-//		catch (BusinessException e)
-//		{
-//			LOGGER.error("Could not create Communication", e);
-//			return convertObjectToJsonResponse("Comm creation error: " + e.getErrorMessage());
-//		}
+		// try
+		// {
+		// SendCommunicationRequestDto request =
+		// convertRequestBodyToObject(request().body(),
+		// SendCommunicationRequestDto.class);
+		// communicationInterface.sendCommunication(request);
+		// }
+		// catch (BusinessException e)
+		// {
+		// LOGGER.error("Could not create Communication", e);
+		// return convertObjectToJsonResponse("Comm creation error: " +
+		// e.getErrorMessage());
+		// }
 
 		return convertObjectToJsonResponse("Flight Booked: ");
 	}

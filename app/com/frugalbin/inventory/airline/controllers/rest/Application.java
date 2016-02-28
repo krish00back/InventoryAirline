@@ -3,10 +3,10 @@ package com.frugalbin.inventory.airline.controllers.rest;
 import javax.inject.Named;
 import javax.inject.Singleton;
 
-import com.frugalbin.inventory.airline.controllers.base.BaseController;
-
 import play.mvc.BodyParser;
 import play.mvc.Result;
+
+import com.frugalbin.inventory.airline.controllers.base.BaseController;
 
 /**
  * The main set of web services.

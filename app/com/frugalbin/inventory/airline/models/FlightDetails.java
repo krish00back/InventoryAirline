@@ -20,18 +20,18 @@ public class FlightDetails
 	private Long flightId;
 
 	@ManyToOne
-//	@Column(name = Constants.FD_AIRLINE_ID_COLUMN)
+	// @Column(name = Constants.FD_AIRLINE_ID_COLUMN)
 	private AirlineConnectionDetails airlineConnection;
 
 	@Column(name = Constants.FD_FLIGHT_NUMBER_COLUMN)
 	private String flightNumber;
 
 	@ManyToOne
-//	@Column(name = Constants.FD_FROM_AIRPORT_COLUMN)
+	// @Column(name = Constants.FD_FROM_AIRPORT_COLUMN)
 	private AirportDetails fromAirport;
 
 	@ManyToOne
-//	@Column(name = Constants.FD_TO_AIRPORT_COLUMN)
+	// @Column(name = Constants.FD_TO_AIRPORT_COLUMN)
 	private AirportDetails toAirport;
 
 	@Column(name = Constants.FD_TOTAL_SEATS_COLUMN)

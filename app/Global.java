@@ -1,3 +1,6 @@
+import java.util.Timer;
+import java.util.TimerTask;
+
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
@@ -12,6 +15,9 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import play.Application;
 import play.GlobalSettings;
+
+import com.frugalbin.inventory.airline.scheduler.InventoryDetailsUpdater;
+import com.frugalbin.inventory.airline.utils.Constants;
 
 /**
  * Application wide behaviour. We establish a Spring application context for the
@@ -56,6 +62,15 @@ public class Global extends GlobalSettings
 		// methods e.g. @PostConstruct
 		ctx.start();
 
+		startInventoryDetailUpdaterTask();
+
+	}
+
+	private void startInventoryDetailUpdaterTask()
+	{
+		TimerTask task = new InventoryDetailsUpdater();
+		Timer timer = new Timer("InventoryDetailsUpdater", false);
+		timer.schedule(task, Constants.UPDATER_DELAY_PERIOD, Constants.UPDATER_PERIOD);
 	}
 
 	/**
@@ -87,11 +102,11 @@ public class Global extends GlobalSettings
 	 */
 	@Configuration
 	@EnableJpaRepositories("com.frugalbin.inventory.airline.repositories")
-	@ComponentScan(basePackages = { "com.frugalbin.inventory.airline.caches", "com.frugalbin.inventory.airline.controllers",
-			"com.frugalbin.inventory.airline.controllers.rest", "com.frugalbin.inventory.airline.models",
-			"com.frugalbin.inventory.airline.models.email", "com.frugalbin.inventory.airline.models.sms",
-			"com.frugalbin.inventory.airline.services", "com.frugalbin.inventory.airline.services.impl",
-			"com.frugalbin.inventory.airline.integration" })
+	@ComponentScan(basePackages = { "com.frugalbin.inventory.airline.caches",
+			"com.frugalbin.inventory.airline.controllers", "com.frugalbin.inventory.airline.controllers.rest",
+			"com.frugalbin.inventory.airline.models", "com.frugalbin.inventory.airline.models.email",
+			"com.frugalbin.inventory.airline.models.sms", "com.frugalbin.inventory.airline.services",
+			"com.frugalbin.inventory.airline.services.impl", "com.frugalbin.inventory.airline.integration" })
 	// , "models", "services.service", "services.serviceimpl",
 	// "controllers.bootstrap"})
 	@EnableTransactionManagement

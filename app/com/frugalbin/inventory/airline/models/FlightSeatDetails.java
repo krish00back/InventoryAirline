@@ -24,7 +24,7 @@ public class FlightSeatDetails
 	private Long flightSeatId;
 
 	@ManyToOne
-//	@Column(name = Constants.FSD_FLIGHT_ID_COLUMN)
+	// @Column(name = Constants.FSD_FLIGHT_ID_COLUMN)
 	private FlightDetails flight;
 
 	@Column(name = Constants.FSD_DEPARTURE_TIME_COLUMN)

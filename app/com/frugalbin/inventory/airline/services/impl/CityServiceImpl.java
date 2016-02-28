@@ -26,7 +26,7 @@ public class CityServiceImpl implements CityServiceI
 	@Override
 	public void insertCity(City city)
 	{
-		cityRepository.saveAndFlush(city);	
+		cityRepository.saveAndFlush(city);
 	}
 
 	@Override

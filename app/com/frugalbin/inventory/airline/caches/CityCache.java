@@ -74,7 +74,7 @@ public class CityCache extends AbstractCache
 	{
 		return cityMap.get(cityId);
 	}
-	
+
 	public List<City> getCityList()
 	{
 		return new ArrayList<City>(cityMap.values());

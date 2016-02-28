@@ -23,7 +23,7 @@ public class AirportDetails
 	private String airportName;
 
 	@ManyToOne
-//	@Column(name = Constants.AIRPORT_CITY_ID_COLUMN)
+	// @Column(name = Constants.AIRPORT_CITY_ID_COLUMN)
 	private City airportCity;
 
 	@Column(name = Constants.AIRPORT_ADDRESS_ID_COLUMN)

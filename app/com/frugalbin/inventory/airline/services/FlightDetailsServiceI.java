@@ -7,5 +7,6 @@ import com.frugalbin.inventory.airline.models.FlightDetails;
 
 public interface FlightDetailsServiceI
 {
-	List<FlightDetails> findFlightByFromAirportInAndToAirportIn(List<AirportDetails> fromAirportList, List<AirportDetails> toAirportList);
+	List<FlightDetails> findFlightByFromAirportInAndToAirportIn(List<AirportDetails> fromAirportList,
+			List<AirportDetails> toAirportList);
 }

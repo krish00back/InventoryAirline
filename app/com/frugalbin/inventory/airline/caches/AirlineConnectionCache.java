@@ -1,18 +1,21 @@
 package com.frugalbin.inventory.airline.caches;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
 import com.frugalbin.inventory.airline.models.AirlineConnectionDetails;
+import com.frugalbin.inventory.airline.models.helpers.ConnectionServiceType;
+import com.frugalbin.inventory.airline.models.helpers.ConnectionType;
 import com.frugalbin.inventory.airline.services.impl.ServiceFactory;
 
 public class AirlineConnectionCache extends AbstractCache
 {
 	private static volatile AirlineConnectionCache instance;
 
-	private Map<Long, AirlineConnectionDetails> connectionMap = new HashMap<Long, AirlineConnectionDetails>();
+	private final Map<Long, AirlineConnectionDetails> connectionMap = new HashMap<Long, AirlineConnectionDetails>();
 
 	private AirlineConnectionCache()
 	{
@@ -38,6 +41,12 @@ public class AirlineConnectionCache extends AbstractCache
 	public void initializeCache(ServiceFactory serviceFactory)
 	{
 		super.initializeCache(serviceFactory);
+		
+		AirlineConnectionDetails airlineConnectionDetails = new AirlineConnectionDetails();
+		airlineConnectionDetails.setAirlineName("Indigo");
+		airlineConnectionDetails.setConnectionServiceType(ConnectionServiceType.REST);
+		airlineConnectionDetails.setConnectionType(ConnectionType.EXTERNAL);
+		airlineConnectionDetails.setConnectionUrl("https://www.googleapis.com/qpxExpress/v1/trips/search");
 	}
 
 	@Override
@@ -46,12 +55,17 @@ public class AirlineConnectionCache extends AbstractCache
 		List<AirlineConnectionDetails> connectionInfo = serviceFactory.getAirlineConnectionDetailsService()
 				.getAllConnections();
 
-		connectionMap = connectionInfo.stream().collect(
-				Collectors.toMap(AirlineConnectionDetails::getAirlineConnectionId, (c) -> c));
+		connectionMap.putAll(connectionInfo.stream().collect(
+				Collectors.toMap(AirlineConnectionDetails::getAirlineConnectionId, (c) -> c)));
 	}
 
 	public AirlineConnectionDetails getAirlineConnectionDetails(Long airlineConnectionId)
 	{
 		return connectionMap.get(airlineConnectionId);
+	}
+	
+	public List<AirlineConnectionDetails> getAirlineConnectionDetailsList()
+	{
+		return new ArrayList<AirlineConnectionDetails>(connectionMap.values());
 	}
 }

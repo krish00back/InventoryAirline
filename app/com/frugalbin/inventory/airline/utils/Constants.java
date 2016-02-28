@@ -12,8 +12,9 @@ public interface Constants
 	static final String FLIGHT_SEAT_DETAILS_TABLE = "FLIGHT_SEAT_DETAILS";
 	static final String BOOKING_DETAILS_TABLE = "BOOKING_DETAILS";
 	static final String PASSENGER_DETAILS_TABLE = "PASSENGER_DETAILS";
-	static final String PASSENDER_BOOKING_MAPPER_TABLE = "PASSENDER_BOOKING_MAPPER";
-	static final String AIRLINE_CONNECTION_DETAILS_TABLE = "AIRLINE_CONNECTION_DETAILS";
+	static final String BOOKING_PASSENGER_MAPPER_TABLE = "BOOKING_PASSENGER_MAPPER";
+	static final String JA_INT_AIRLINE_CONNECTION_DETAILS_TABLE = "JA_INT_AIRLINE_CONNECTION_DETAILS";
+	static final String QPX_AIRLINE_CONNECTION_DETAILS_TABLE = "QPX_AIRLINE_CONNECTION_DETAILS";
 
 	// Table Columns
 	// Columns: Common
@@ -59,6 +60,10 @@ public interface Constants
 	static final String ACD_CONNECTION_URL_COLUMN = "CONNECTION_URL";
 	static final String ACD_USERNAME_COLUMN = "USERNAME";
 	static final String ACD_PASSWORD_COLUMN = "PASSWORD";
+	static final String CONNECTION_TYPE_COLUMN = "CONNECTION_TYPE";
+	static final String CONNECTION_SERVICE_TYPE_COLUMN = "CONNECTION_SERVICE_TYPE";
+	static final String SEARCH_JSON_REQUEST_COLUMN = "SEARCH_JSON_REQUEST";
+	
 	// ERROR Codes
 	static final int TEMPLATE_NOT_FOUND_ERROR_CODE = 1001;
 
@@ -67,4 +72,7 @@ public interface Constants
 
 	static final String TIMESTAMP_TYPE = "timestamp";
 
+	static final long UPDATER_DELAY_PERIOD = 1 * 10 * 1000;
+
+	static final long UPDATER_PERIOD = 5 * 60 * 1000;
 }

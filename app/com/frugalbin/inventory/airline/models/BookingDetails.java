@@ -4,6 +4,7 @@ import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -26,11 +27,10 @@ public class BookingDetails
 	private String airlineTransactionId;
 
 	@ManyToOne
-//	@Column(name = Constants.BD_FLIGHT_SEAT_ID_COLUMN)
 	private FlightSeatDetails flightSeat;
-	
-	@OneToMany(mappedBy = "")
-	private Set<PassengerDetails> passengerList;
+
+	@OneToMany(mappedBy = "compositeKey.booking", fetch = FetchType.EAGER)
+	private Set<BookingPassengerMapper> compositeKeyList;
 
 	public Long getBookingId()
 	{

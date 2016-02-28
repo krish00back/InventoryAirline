@@ -15,6 +15,7 @@ import com.frugalbin.inventory.airline.services.AirportDetailsServiceI;
 public class AirportDetailsServiceImpl implements AirportDetailsServiceI
 {
 	private AirportDetailsRepository repository;
+
 	@Override
 	public List<AirportDetails> findAirportByAirportCity(City airportCity)
 	{
