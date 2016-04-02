@@ -16,7 +16,7 @@ public class City
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = Constants.ID_COLUMN)
-	private Long cityId;
+	private String cityCode;
 
 	@Column(name = Constants.NAME_COLUMN)
 	private String cityName;
@@ -24,14 +24,14 @@ public class City
 	@Column(name = Constants.STATE_COLUMN)
 	private String cityState;
 
-	public Long getCityId()
+	public String getCityCode()
 	{
-		return cityId;
+		return cityCode;
 	}
 
-	public void setCityId(Long cityId)
+	public void setCityCode(String cityCode)
 	{
-		this.cityId = cityId;
+		this.cityCode = cityCode;
 	}
 
 	public String getCityName()

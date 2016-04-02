@@ -1,51 +1,84 @@
 package com.frugalbin.inventory.airline.controllers.dto.response;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class FlightSlotBean
 {
-	private float minPrice;
-
-	/**
-	 * Flight Name -> list of Flights(Flight number, departure, arrival)<br>
-	 * 
-	 * eg, Indigo -> {9W2847, 2016-02-25T13:35+05:30, 2016-02-25T15:00+05:30}
-	 */
-	private Map<String, List<FlightDetailsBean>> flightDetailsMap = new HashMap<String, List<FlightDetailsBean>>();
-
-	public float getMinPrice()
+	private String searchId;
+	private Map<String, CityBean> cities;
+	private String fromCity;
+	private String toCity;
+	private Map<String, CarrierBean> carriers;
+	private Date departDate;
+	private Date returnDate;
+	private List<SlotBean> slotList;
+	
+	public String getSearchId()
 	{
-		return minPrice;
+		return searchId;
 	}
-
-	public void setMinPrice(float minPrice)
+	public void setSearchId(String searchId)
 	{
-		this.minPrice = minPrice;
+		this.searchId = searchId;
 	}
-
-	public Map<String, List<FlightDetailsBean>> getFlightDetailsMap()
+	public Map<String, CityBean> getCities()
 	{
-		return flightDetailsMap;
+		return cities;
 	}
-
-	public void setFlightDetailsMap(Map<String, List<FlightDetailsBean>> flightDetailsMap)
+	public void setCities(Map<String, CityBean> cities)
 	{
-		this.flightDetailsMap = flightDetailsMap;
+		this.cities = cities;
 	}
-
-	public void addFlightDetails(String flightName, FlightDetailsBean flightDetails)
+	public String getFromCity()
 	{
-		List<FlightDetailsBean> flightDetailsList = flightDetailsMap.get(flightName);
-
-		if (flightDetailsList == null)
-		{
-			flightDetailsList = new ArrayList<FlightDetailsBean>();
-			flightDetailsMap.put(flightName, flightDetailsList);
-		}
-
-		flightDetailsList.add(flightDetails);
+		return fromCity;
+	}
+	public void setFromCity(String fromCity)
+	{
+		this.fromCity = fromCity;
+	}
+	public String getToCity()
+	{
+		return toCity;
+	}
+	public void setToCity(String toCity)
+	{
+		this.toCity = toCity;
+	}
+	public Map<String, CarrierBean> getCarriers()
+	{
+		return carriers;
+	}
+	public void setCarriers(Map<String, CarrierBean> carriers)
+	{
+		this.carriers = carriers;
+	}
+	public Date getDepartDate()
+	{
+		return departDate;
+	}
+	public void setDepartDate(Date departDate)
+	{
+		this.departDate = departDate;
+	}
+	public Date getReturnDate()
+	{
+		return returnDate;
+	}
+	public void setReturnDate(Date returnDate)
+	{
+		this.returnDate = returnDate;
+	}
+	public List<SlotBean> getSlotList()
+	{
+		return slotList;
+	}
+	public void setSlotList(List<SlotBean> slotList)
+	{
+		this.slotList = slotList;
 	}
 }

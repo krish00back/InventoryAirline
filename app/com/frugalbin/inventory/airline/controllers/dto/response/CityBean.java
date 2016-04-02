@@ -1,26 +1,25 @@
 package com.frugalbin.inventory.airline.controllers.dto.response;
 
-import com.frugalbin.inventory.airline.models.City;
 
 public class CityBean
 {
-	private Long cityId;
+	private String id;
 	private String cityName;
 
-	public CityBean(City city)
+	public CityBean(String id, String cityName)
 	{
-		this.cityId = city.getCityId();
-		this.cityName = city.getCityName();
+		this.id = id;
+		this.cityName = cityName;
 	}
 
-	public Long getCityId()
+	public String getId()
 	{
-		return cityId;
+		return id;
 	}
 
-	public void setCityId(Long cityId)
+	public void setId(String id)
 	{
-		this.cityId = cityId;
+		this.id = id;
 	}
 
 	public String getCityName()

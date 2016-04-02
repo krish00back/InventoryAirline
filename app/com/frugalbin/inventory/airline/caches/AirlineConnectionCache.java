@@ -52,11 +52,16 @@ public class AirlineConnectionCache extends AbstractCache
 	@Override
 	public void refreshCache()
 	{
-		List<AirlineConnectionDetails> connectionInfo = serviceFactory.getAirlineConnectionDetailsService()
+		List<AirlineConnectionDetails> connectionInfoList = serviceFactory.getAirlineConnectionDetailsService()
 				.getAllConnections();
 
-		connectionMap.putAll(connectionInfo.stream().collect(
-				Collectors.toMap(AirlineConnectionDetails::getAirlineConnectionId, (c) -> c)));
+//		connectionMap.putAll(connectionInfo.stream().collect(
+//				Collectors.toMap(AirlineConnectionDetails::getAirlineConnectionId, (c) -> c)));
+		
+		for (AirlineConnectionDetails connectionInfo : connectionInfoList)
+		{
+			connectionMap.put(connectionInfo.getAirlineConnectionId(), connectionInfo);
+		}
 	}
 
 	public AirlineConnectionDetails getAirlineConnectionDetails(Long airlineConnectionId)

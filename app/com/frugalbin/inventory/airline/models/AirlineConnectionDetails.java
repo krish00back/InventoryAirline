@@ -14,9 +14,9 @@ import com.frugalbin.inventory.airline.models.helpers.ConnectionServiceType;
 import com.frugalbin.inventory.airline.models.helpers.ConnectionType;
 import com.frugalbin.inventory.airline.utils.Constants;
 
-//@Entity
-//@Table(name = Constants.AIRLINE_CONNECTION_DETAILS_TABLE, schema = Constants.INVENTORY_AIRLINE_SCHEMA)
-@MappedSuperclass
+@Entity
+@Table(name = Constants.AIRLINE_CONNECTION_DETAILS_TABLE, schema = Constants.INVENTORY_AIRLINE_SCHEMA)
+//@MappedSuperclass
 public class AirlineConnectionDetails
 {
 	@Id

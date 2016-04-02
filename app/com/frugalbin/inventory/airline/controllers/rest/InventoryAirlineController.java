@@ -15,7 +15,7 @@ import play.mvc.Result;
 
 import com.frugalbin.inventory.airline.caches.CacheManager;
 import com.frugalbin.inventory.airline.controllers.base.BaseController;
-import com.frugalbin.inventory.airline.controllers.dto.request.FlightListRequest;
+import com.frugalbin.inventory.airline.controllers.dto.request.FlightListSearchRequest;
 import com.frugalbin.inventory.airline.controllers.dto.response.CityBean;
 import com.frugalbin.inventory.airline.controllers.dto.response.FlightSlotBean;
 import com.frugalbin.inventory.airline.controllers.dto.response.Slots;
@@ -39,19 +39,37 @@ public class InventoryAirlineController extends BaseController
 	{
 		LOGGER.info("Get City List started");
 
-		List<CityBean> cityBeanList = inventoryAirlineInterface.getCityList();
+		Map<String, CityBean> cityBeanMap = inventoryAirlineInterface.getCityMap();
 
-		LOGGER.info("Get City List ended: " + cityBeanList);
-		return convertObjectToJsonResponse(cityBeanList);
+		LOGGER.info("Get City List ended: " + cityBeanMap);
+		return convertObjectToJsonResponse(cityBeanMap);
+	}
+	
+	@BodyParser.Of(BodyParser.Json.class)
+	public Result getFlight() throws com.frugalbin.common.exceptions.BusinessException
+	{
+		FlightSlotBean flightSlots;
+		try
+		{
+			FlightListSearchRequest request = convertRequestBodyToObject(request().body(), FlightListSearchRequest.class);
+			flightSlots = inventoryAirlineInterface.getFlightSlots(request);
+		}
+		catch (BusinessException e)
+		{
+			LOGGER.error("Could not create Communication", e);
+			return convertObjectToJsonResponse("Comm creation error: " + e.getErrorMessage());
+		}
+
+		return convertObjectToJsonResponse("Flight Slot Details: " + flightSlots);
 	}
 
 	@BodyParser.Of(BodyParser.Json.class)
-	public Result getFlightSlotDetails()
+	public Result getFlightSlotDetails() throws com.frugalbin.common.exceptions.BusinessException
 	{
-		Map<Slots, FlightSlotBean> flightSlots;
+		FlightSlotBean flightSlots;
 		try
 		{
-			FlightListRequest request = convertRequestBodyToObject(request().body(), FlightListRequest.class);
+			FlightListSearchRequest request = convertRequestBodyToObject(request().body(), FlightListSearchRequest.class);
 			flightSlots = inventoryAirlineInterface.getFlightSlots(request);
 		}
 		catch (BusinessException e)

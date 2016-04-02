@@ -13,7 +13,7 @@ public class CityCache extends AbstractCache
 {
 	private static volatile CityCache instance;
 
-	private Map<Long, City> cityMap = new HashMap<Long, City>();
+	private Map<String, City> cityMap = new HashMap<String, City>();
 
 	private CityCache()
 	{
@@ -67,10 +67,15 @@ public class CityCache extends AbstractCache
 	{
 		List<City> cityList = serviceFactory.getCityService().getAllCities();
 
-		cityMap = cityList.stream().collect(Collectors.toMap(City::getCityId, (c) -> c));
+//		cityMap = cityList.stream().collect(Collectors.toMap(City::getCityId, (c) -> c));
+		
+		for (City city : cityList)
+		{
+			cityMap.put(city.getCityCode(), city);
+		}
 	}
 
-	public City getCity(Long cityId)
+	public City getCity(String cityId)
 	{
 		return cityMap.get(cityId);
 	}

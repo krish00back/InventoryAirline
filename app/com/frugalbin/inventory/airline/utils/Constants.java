@@ -13,6 +13,7 @@ public interface Constants
 	static final String BOOKING_DETAILS_TABLE = "BOOKING_DETAILS";
 	static final String PASSENGER_DETAILS_TABLE = "PASSENGER_DETAILS";
 	static final String BOOKING_PASSENGER_MAPPER_TABLE = "BOOKING_PASSENGER_MAPPER";
+	static final String AIRLINE_CONNECTION_DETAILS_TABLE = "AIRLINE_CONNECTION_DETAILS";
 	static final String JA_INT_AIRLINE_CONNECTION_DETAILS_TABLE = "JA_INT_AIRLINE_CONNECTION_DETAILS";
 	static final String QPX_AIRLINE_CONNECTION_DETAILS_TABLE = "QPX_AIRLINE_CONNECTION_DETAILS";
 
@@ -75,4 +76,13 @@ public interface Constants
 	static final long UPDATER_DELAY_PERIOD = 1 * 10 * 1000;
 
 	static final long UPDATER_PERIOD = 5 * 60 * 1000;
+	
+	static final int MAX_FLIGHTS_IN_SLOT = 10;
+	static final int MIN_FLIGHTS_IN_SLOT = 3;
+
+	static final String BIN_HEADING = "BIN#";
+
+	static final String AM_STRING = "AM";
+
+	static final String PM_STRING = "PM";
 }
