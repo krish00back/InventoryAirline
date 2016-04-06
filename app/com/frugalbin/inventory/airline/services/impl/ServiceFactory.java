@@ -12,6 +12,7 @@ import com.frugalbin.inventory.airline.services.FlightDetailsServiceI;
 import com.frugalbin.inventory.airline.services.FlightSeatDetailsServiceI;
 import com.frugalbin.inventory.airline.services.PassengerBookingMapperServiceI;
 import com.frugalbin.inventory.airline.services.PassengerDetailsServiceI;
+import com.frugalbin.inventory.airline.services.UserRequestsServiceI;
 
 @Named
 @Singleton
@@ -40,6 +41,9 @@ public class ServiceFactory
 
 	@Inject
 	private PassengerDetailsServiceI passengerService;
+	
+	@Inject
+	private UserRequestsServiceI userRequestsService;
 
 	public AirlineConnectionDetailsServiceI getAirlineConnectionDetailsService()
 	{
@@ -119,5 +123,15 @@ public class ServiceFactory
 	public void setPassengerService(PassengerDetailsServiceI passengerService)
 	{
 		this.passengerService = passengerService;
+	}
+
+	public UserRequestsServiceI getUserRequestsService()
+	{
+		return userRequestsService;
+	}
+
+	public void setUserRequestsService(UserRequestsServiceI userRequestsService)
+	{
+		this.userRequestsService = userRequestsService;
 	}
 }

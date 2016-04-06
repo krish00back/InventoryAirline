@@ -14,7 +14,7 @@ import com.frugalbin.inventory.airline.utils.Constants;
 public class City
 {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+//	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = Constants.ID_COLUMN)
 	private String cityCode;
 

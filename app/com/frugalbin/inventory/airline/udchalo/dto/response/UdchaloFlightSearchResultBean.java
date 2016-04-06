@@ -2,12 +2,11 @@ package com.frugalbin.inventory.airline.udchalo.dto.response;
 
 import java.util.Map;
 
-import com.frugalbin.inventory.airline.controllers.dto.request.FlightListSearchRequest;
-import com.frugalbin.inventory.airline.controllers.dto.response.CityBean;
+import com.frugalbin.inventory.airline.udchalo.dto.request.UdchaloFlightSearchRequest;
 
-public class AirlineSearchResultBean
+public class UdchaloFlightSearchResultBean
 {
-	private UdchaloSearchRequest search;
+	private UdchaloFlightSearchRequest search;
 	private boolean isSuccess;
 	private String message;
 	private Map<String, String> airlines;
@@ -17,12 +16,12 @@ public class AirlineSearchResultBean
 	private Map<Long, LegBean> onwardLegs;
 	private Map<Long, LegBean> returnLegs;
 
-	public UdchaloSearchRequest getSearch()
+	public UdchaloFlightSearchRequest getSearch()
 	{
 		return search;
 	}
 
-	public void setSearch(UdchaloSearchRequest search)
+	public void setSearch(UdchaloFlightSearchRequest search)
 	{
 		this.search = search;
 	}

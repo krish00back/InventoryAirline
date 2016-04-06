@@ -9,9 +9,17 @@ GET     /									@com.frugalbin.inventory.airline.controllers.rest.Application.
 
 GET 	/inventoryAirline/getCityList					@com.frugalbin.inventory.airline.controllers.rest.InventoryAirlineController.getCityList()
 
-POST	/inventoryAirline/getFlightSlotDetails			@com.frugalbin.inventory.airline.controllers.rest.InventoryAirlineController.getFlightSlotDetails()
+#POST	/inventoryAirline/getFlightSlotDetails			@com.frugalbin.inventory.airline.controllers.rest.InventoryAirlineController.getFlightSlotDetails()
 
-POST	/inventoryAirline/bookFlightTicket				@com.frugalbin.inventory.airline.controllers.rest.InventoryAirlineController.bookFlightTicket()
+#POST	/inventoryAirline/bookFlightTicket				@com.frugalbin.inventory.airline.controllers.rest.InventoryAirlineController.bookFlightTicket()
+
+POST	/inventoryAirline/createUserRequest				@com.frugalbin.inventory.airline.controllers.rest.InventoryAirlineController.createUserRequest()
+
+POST	/inventoryAirline/getRequestedFlightDetails		@com.frugalbin.inventory.airline.controllers.rest.InventoryAirlineController.getRequestedFlightDetails()
+
+POST	/inventoryAirline/checkFlightPrice				@com.frugalbin.inventory.airline.controllers.rest.InventoryAirlineController.checkFlightPrice()
+
+POST	/inventoryAirline/saveBooking				@com.frugalbin.inventory.airline.controllers.rest.InventoryAirlineController.saveBooking()
 
 # APIs/routes for INTERNAL USE
 # TODO: Need to add CORS Filter to restrict refreshDB api to be called from outside

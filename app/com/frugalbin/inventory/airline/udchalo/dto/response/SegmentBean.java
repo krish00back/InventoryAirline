@@ -11,7 +11,7 @@ public class SegmentBean
 	private String origin;
 
 	// CityBean
-	private CityBean destination;
+	private String destination;
 	private Date depart;
 	private Date arrive;
 	private int duration;
@@ -32,7 +32,7 @@ public class SegmentBean
 		return origin;
 	}
 
-	public CityBean getDestination()
+	public String getDestination()
 	{
 		return destination;
 	}
@@ -90,5 +90,70 @@ public class SegmentBean
 	public int getLayover()
 	{
 		return layover;
+	}
+
+	public void setOrigin(String origin)
+	{
+		this.origin = origin;
+	}
+
+	public void setDestination(String destination)
+	{
+		this.destination = destination;
+	}
+
+	public void setDepart(Date depart)
+	{
+		this.depart = depart;
+	}
+
+	public void setArrive(Date arrive)
+	{
+		this.arrive = arrive;
+	}
+
+	public void setDuration(int duration)
+	{
+		this.duration = duration;
+	}
+
+	public void setCabin(Cabins cabin)
+	{
+		this.cabin = cabin;
+	}
+
+	public void setServiceClass(String serviceClass)
+	{
+		this.serviceClass = serviceClass;
+	}
+
+	public void setAircraft(String aircraft)
+	{
+		this.aircraft = aircraft;
+	}
+
+	public void setMileage(int mileage)
+	{
+		this.mileage = mileage;
+	}
+
+	public void setStops(int stops)
+	{
+		this.stops = stops;
+	}
+
+	public void setFlightNumber(String flightNumber)
+	{
+		this.flightNumber = flightNumber;
+	}
+
+	public void setAirline(String airline)
+	{
+		this.airline = airline;
+	}
+
+	public void setLayover(int layover)
+	{
+		this.layover = layover;
 	}
 }

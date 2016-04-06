@@ -1,4 +1,4 @@
-package com.frugalbin.inventory.airline.udchalo.dto.response;
+package com.frugalbin.inventory.airline.udchalo.dto.request;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -6,7 +6,7 @@ import java.util.Date;
 
 import com.frugalbin.inventory.airline.enums.TripType;
 
-public class UdchaloSearchRequest
+public class UdchaloFlightSearchRequest
 {
 	/*
 	 * "search": {
@@ -101,5 +101,55 @@ public class UdchaloSearchRequest
 	public int get__v()
 	{
 		return __v;
+	}
+
+	public void set_id(String _id)
+	{
+		this._id = _id;
+	}
+
+	public void setOrgin(String orgin)
+	{
+		this.orgin = orgin;
+	}
+
+	public void setDestination(String destination)
+	{
+		this.destination = destination;
+	}
+
+	public void setDepart(String depart)
+	{
+		this.depart = depart;
+	}
+
+	public void setReturndate(String returndate)
+	{
+		this.returndate = returndate;
+	}
+
+	public void setAdults(int adults)
+	{
+		this.adults = adults;
+	}
+
+	public void setInfants(int infants)
+	{
+		this.infants = infants;
+	}
+
+	public void setTripType(TripType tripType)
+	{
+		this.tripType = tripType;
+	}
+
+	public void set__v(int __v)
+	{
+		this.__v = __v;
+	}
+
+	public void setDepart(Date departureDate)
+	{
+		depart = dateFormat.format(departureDate);
 	}
 }

@@ -1,5 +1,7 @@
 package com.frugalbin.inventory.airline.utils;
 
+import java.text.SimpleDateFormat;
+
 public interface Constants
 {
 	// Schema
@@ -16,6 +18,7 @@ public interface Constants
 	static final String AIRLINE_CONNECTION_DETAILS_TABLE = "AIRLINE_CONNECTION_DETAILS";
 	static final String JA_INT_AIRLINE_CONNECTION_DETAILS_TABLE = "JA_INT_AIRLINE_CONNECTION_DETAILS";
 	static final String QPX_AIRLINE_CONNECTION_DETAILS_TABLE = "QPX_AIRLINE_CONNECTION_DETAILS";
+	static final String USER_REQUEST_TABLE = "USER_REQUEST";
 
 	// Table Columns
 	// Columns: Common
@@ -65,6 +68,16 @@ public interface Constants
 	static final String CONNECTION_SERVICE_TYPE_COLUMN = "CONNECTION_SERVICE_TYPE";
 	static final String SEARCH_JSON_REQUEST_COLUMN = "SEARCH_JSON_REQUEST";
 	
+	// Columns: USER_REQUEST
+	static final String UR_REQUEST_ID_COLUMN = "REQUEST_ID";
+	static final String UR_FROM_CITY_COLUMN = "FROM_CITY";
+	static final String UR_TO_CITY_COLUMN = "TO_CITY";
+	static final String UR_DEPARTURE_DATE_COLUMN = "DEPARTURE_DATE";
+	static final String UR_ADULT_PASSENGER_COUNT_COLUMN = "ADULT_PASSENGER_COUNT";
+	static final String UR_INFANTS_PASSENGER_COUNT_COLUMN = "INFANTS_PASSENGER_COUNT";
+	static final String UR_USER_ID_COLUMN = "USER_ID";
+	static final String UR_PNR_COLUMN = "PNR";
+	
 	// ERROR Codes
 	static final int TEMPLATE_NOT_FOUND_ERROR_CODE = 1001;
 
@@ -85,4 +98,8 @@ public interface Constants
 	static final String AM_STRING = "AM";
 
 	static final String PM_STRING = "PM";
+	
+	static final SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'kk:mm:ss.000'Z'");
+	
+	static final SimpleDateFormat LEG_DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
 }

@@ -2,6 +2,8 @@ package com.frugalbin.inventory.airline.controllers.dto.response;
 
 import java.util.Date;
 
+import com.frugalbin.common.dto.response.inventory.airline.PriceCheckRequestBean;
+
 public class MarketFlightDetailsBean
 {
 	private String carrierId;
@@ -10,6 +12,7 @@ public class MarketFlightDetailsBean
 	private int discount;
 	private double pricePerPerson;
 	private StopBean stop;
+	private PriceCheckRequestBean priceCheckRequest;
 
 	public String getCarrierId()
 	{
@@ -69,5 +72,15 @@ public class MarketFlightDetailsBean
 	public void setStop(StopBean stop)
 	{
 		this.stop = stop;
+	}
+
+	public PriceCheckRequestBean getPriceCheckRequest()
+	{
+		return priceCheckRequest;
+	}
+
+	public void setPriceCheckRequest(PriceCheckRequestBean priceCheckRequest)
+	{
+		this.priceCheckRequest = priceCheckRequest;
 	}
 }

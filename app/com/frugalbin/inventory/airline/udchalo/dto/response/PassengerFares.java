@@ -59,4 +59,49 @@ public class PassengerFares
 	{
 		return cabins;
 	}
+
+	public void setPassengerType(PassengerType passengerType)
+	{
+		this.passengerType = passengerType;
+	}
+
+	public void setQuantity(int quantity)
+	{
+		this.quantity = quantity;
+	}
+
+	public void setBaseFare(double baseFare)
+	{
+		this.baseFare = baseFare;
+	}
+
+	public void setTaxes(TaxesBean[] taxes)
+	{
+		this.taxes = taxes;
+	}
+
+	public void setTotalTax(double totalTax)
+	{
+		this.totalTax = totalTax;
+	}
+
+	public void setTotalFare(double totalFare)
+	{
+		this.totalFare = totalFare;
+	}
+
+	public void setFareBasicCodes(String[] fareBasicCodes)
+	{
+		this.fareBasicCodes = fareBasicCodes;
+	}
+
+	public void setServiceClasses(String[] serviceClasses)
+	{
+		this.serviceClasses = serviceClasses;
+	}
+
+	public void setCabins(Cabins[] cabins)
+	{
+		this.cabins = cabins;
+	}
 }

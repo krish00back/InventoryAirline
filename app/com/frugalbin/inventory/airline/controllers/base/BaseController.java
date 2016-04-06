@@ -8,7 +8,7 @@ import play.mvc.Http.RequestBody;
 import play.mvc.Result;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import com.frugalbin.inventory.airline.controllers.dto.response.ErrorResponse;
+import com.frugalbin.common.dto.response.authentication.ErrorResponse;
 import com.frugalbin.inventory.airline.exceptions.BusinessException;
 import com.frugalbin.inventory.airline.exceptions.ErrorConstants;
 
@@ -82,13 +82,13 @@ public class BaseController extends Controller
 	public Result errorObjectToJsonResponse(ErrorResponse errorResponse)
 	{
 
-		int errorCode = errorResponse.getErrorCode();
-		// char errorType = getFirstDigit(errorCode.charAt(0);
+		String errorCode = errorResponse.getErrorCode();
+		int errorType = Integer.parseInt(errorCode.substring(0, 1));
 
 		// the httpErrorCode
 		int httpErrorCode;
 
-		switch (errorCode / 100)
+		switch (errorType)
 		{
 			case 4:
 				httpErrorCode = HttpStatus.SC_BAD_REQUEST;

@@ -8,17 +8,17 @@ public class BusinessException extends Throwable
 	 */
 	private static final long serialVersionUID = 1L;
 
-	private int errorCode;
+	private String errorCode;
 	private String errorMessage;
 
-	public BusinessException(int errorCode, String errorMessage)
+	public BusinessException(String errorCode, String errorMessage)
 	{
 		super(errorMessage);
 		this.errorCode = errorCode;
 		this.errorMessage = errorMessage;
 	}
 
-	public BusinessException(int errorCode, String errorMessage, Throwable cause)
+	public BusinessException(String errorCode, String errorMessage, Throwable cause)
 	{
 		super(errorMessage, cause);
 		this.errorCode = errorCode;
@@ -35,12 +35,12 @@ public class BusinessException extends Throwable
 		super(cause);
 	}
 
-	public int getErrorCode()
+	public String getErrorCode()
 	{
 		return errorCode;
 	}
 
-	public void setErrorCode(int errorCode)
+	public void setErrorCode(String errorCode)
 	{
 		this.errorCode = errorCode;
 	}

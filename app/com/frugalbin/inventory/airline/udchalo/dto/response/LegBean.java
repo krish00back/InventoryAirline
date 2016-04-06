@@ -82,4 +82,69 @@ public class LegBean
 	{
 		return segments;
 	}
+
+	public boolean isShowDetails()
+	{
+		return showDetails;
+	}
+
+	public void setId(long id)
+	{
+		Id = id;
+	}
+
+	public void setOrigin(String origin)
+	{
+		this.origin = origin;
+	}
+
+	public void setDestination(String destination)
+	{
+		this.destination = destination;
+	}
+
+	public void setDepart(Date depart)
+	{
+		this.depart = depart;
+	}
+
+	public void setArrive(Date arrive)
+	{
+		this.arrive = arrive;
+	}
+
+	public void setDuration(int duration)
+	{
+		this.duration = duration;
+	}
+
+	public void setCabin(Cabins cabin)
+	{
+		this.cabin = cabin;
+	}
+
+	public void setServiceClass(String serviceClass)
+	{
+		this.serviceClass = serviceClass;
+	}
+
+	public void setStops(int stops)
+	{
+		this.stops = stops;
+	}
+
+	public void setAirline(String airline)
+	{
+		this.airline = airline;
+	}
+
+	public void setSegments(SegmentBean[] segments)
+	{
+		this.segments = segments;
+	}
+
+	public void setShowDetails(boolean showDetails)
+	{
+		this.showDetails = showDetails;
+	}
 }

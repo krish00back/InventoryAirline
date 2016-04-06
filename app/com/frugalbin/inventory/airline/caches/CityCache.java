@@ -42,22 +42,26 @@ public class CityCache extends AbstractCache
 
 		// TODO: Remove this when using actual DB
 		City city = new City();
+		city.setCityCode("PNQ");
 		city.setCityName("Pune");
 		city.setCityState("Maharashtra");
 		this.serviceFactory.getCityService().insertCity(city);
 
 		city = new City();
+		city.setCityCode("BLR");
 		city.setCityName("Bengaluru");
 		city.setCityState("Karnataka");
 		this.serviceFactory.getCityService().insertCity(city);
 
 		city = new City();
+		city.setCityCode("DEL");
 		city.setCityName("Delhi");
 		city.setCityState("Delhi");
 		this.serviceFactory.getCityService().insertCity(city);
 
 		city = new City();
 		city.setCityName("Agra");
+		city.setCityCode("AGC");
 		city.setCityState("Uttar Pradesh");
 		this.serviceFactory.getCityService().insertCity(city);
 	}

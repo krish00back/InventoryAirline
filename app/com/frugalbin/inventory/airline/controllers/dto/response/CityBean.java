@@ -5,6 +5,10 @@ public class CityBean
 {
 	private String id;
 	private String cityName;
+	
+	public CityBean()
+	{
+	}
 
 	public CityBean(String id, String cityName)
 	{
