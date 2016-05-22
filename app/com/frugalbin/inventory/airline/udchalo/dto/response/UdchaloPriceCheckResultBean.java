@@ -1,21 +1,21 @@
 package com.frugalbin.inventory.airline.udchalo.dto.response;
 
-import com.frugalbin.inventory.airline.udchalo.dto.request.UdchaloFlightSearchRequest;
+import com.frugalbin.inventory.airline.udchalo.dto.request.UdchaloFlightSearchBean;
 
 public class UdchaloPriceCheckResultBean
 {
-	private UdchaloFlightSearchRequest search;
+	private UdchaloFlightSearchBean search;
 	private Boolean isSuccess;
 	private Boolean isFareChanged;
 	private String message;
 	private FaresBean fare;
 
-	public UdchaloFlightSearchRequest getSearch()
+	public UdchaloFlightSearchBean getSearch()
 	{
 		return search;
 	}
 
-	public void setSearch(UdchaloFlightSearchRequest search)
+	public void setSearch(UdchaloFlightSearchBean search)
 	{
 		this.search = search;
 	}

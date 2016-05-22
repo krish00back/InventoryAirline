@@ -1,9 +1,12 @@
 package com.frugalbin.inventory.airline.udchalo.dto.response;
 
+import java.text.ParseException;
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.frugalbin.common.dto.response.inventory.airline.CityBean;
 import com.frugalbin.inventory.airline.enums.Cabins;
+import com.frugalbin.inventory.airline.utils.Constants;
 
 public class SegmentBean
 {
@@ -12,11 +15,11 @@ public class SegmentBean
 
 	// CityBean
 	private String destination;
-	private Date depart;
-	private Date arrive;
+	private String depart;
+	private String arrive;
 	private int duration;
 	private Cabins cabin;
-	private String serviceClass;
+	private String serviceclass;
 	private String aircraft;
 	private int mileage;
 	private int stops;
@@ -37,12 +40,38 @@ public class SegmentBean
 		return destination;
 	}
 
-	public Date getDepart()
+	@JsonIgnore
+	public Date getParsedDepart()
+	{
+		try
+		{
+			return Constants.LEG_DATE_FORMAT.parse(depart);
+		}
+		catch (ParseException e)
+		{
+			return null;
+		}
+	}
+
+	public String getDepart()
 	{
 		return depart;
 	}
 
-	public Date getArrive()
+	@JsonIgnore
+	public Date getParsedArrive()
+	{
+		try
+		{
+			return Constants.LEG_DATE_FORMAT.parse(arrive);
+		}
+		catch (ParseException e)
+		{
+			return null;
+		}
+	}
+	
+	public String getArrive()
 	{
 		return arrive;
 	}
@@ -57,9 +86,9 @@ public class SegmentBean
 		return cabin;
 	}
 
-	public String getServiceClass()
+	public String getServiceclass()
 	{
-		return serviceClass;
+		return serviceclass;
 	}
 
 	public String getAircraft()
@@ -102,12 +131,12 @@ public class SegmentBean
 		this.destination = destination;
 	}
 
-	public void setDepart(Date depart)
+	public void setDepart(String depart)
 	{
 		this.depart = depart;
 	}
 
-	public void setArrive(Date arrive)
+	public void setArrive(String arrive)
 	{
 		this.arrive = arrive;
 	}
@@ -122,9 +151,9 @@ public class SegmentBean
 		this.cabin = cabin;
 	}
 
-	public void setServiceClass(String serviceClass)
+	public void setServiceclass(String serviceclass)
 	{
-		this.serviceClass = serviceClass;
+		this.serviceclass = serviceclass;
 	}
 
 	public void setAircraft(String aircraft)

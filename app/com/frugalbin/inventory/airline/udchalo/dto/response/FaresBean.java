@@ -2,11 +2,33 @@ package com.frugalbin.inventory.airline.udchalo.dto.response;
 
 public class FaresBean
 {
+	private int __v;
+	private String _id;
 	private long id;
 	private PassengerFares[] passengerFares;
 	private double baseTotalFare;
 	private double totalTax;
 	private double totalFare;
+	
+	public int get__v()
+	{
+		return __v;
+	}
+
+	public void set__v(int __v)
+	{
+		this.__v = __v;
+	}
+
+	public String get_id()
+	{
+		return _id;
+	}
+
+	public void set_id(String _id)
+	{
+		this._id = _id;
+	}
 
 	public long getId()
 	{

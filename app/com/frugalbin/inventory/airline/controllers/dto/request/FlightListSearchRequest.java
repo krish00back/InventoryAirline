@@ -12,7 +12,7 @@ public class FlightListSearchRequest
 	private Date arrival;
 	private Integer numOfAdults;
 	private Integer numOfInfants;
-	private TripType tripType = TripType.ONE_WAY;
+	private TripType tripType = TripType.oneway;
 	private Date preferredTime;
 	private Integer numberOfTravellers;
 	private String slotBreakupType = "THREE_DAYS";

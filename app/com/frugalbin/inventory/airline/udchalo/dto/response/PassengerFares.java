@@ -5,15 +5,26 @@ import com.frugalbin.inventory.airline.enums.PassengerType;
 
 public class PassengerFares
 {
+	private String _id;
 	private PassengerType passengerType;
 	private int quantity;
 	private double baseFare;
 	private TaxesBean[] taxes;
 	private double totalTax;
 	private double totalFare;
-	private String[] fareBasicCodes;
+	private String[] fareBasisCodes;
 	private String[] serviceClasses;
 	private Cabins[] cabins;
+
+	public String get_id()
+	{
+		return _id;
+	}
+
+	public void set_id(String _id)
+	{
+		this._id = _id;
+	}
 
 	public PassengerType getPassengerType()
 	{
@@ -45,9 +56,9 @@ public class PassengerFares
 		return totalFare;
 	}
 
-	public String[] getFareBasicCodes()
+	public String[] getFareBasisCodes()
 	{
-		return fareBasicCodes;
+		return fareBasisCodes;
 	}
 
 	public String[] getServiceClasses()
@@ -90,9 +101,9 @@ public class PassengerFares
 		this.totalFare = totalFare;
 	}
 
-	public void setFareBasicCodes(String[] fareBasicCodes)
+	public void setFareBasisCodes(String[] fareBasisCodes)
 	{
-		this.fareBasicCodes = fareBasicCodes;
+		this.fareBasisCodes = fareBasisCodes;
 	}
 
 	public void setServiceClasses(String[] serviceClasses)

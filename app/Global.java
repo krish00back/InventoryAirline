@@ -106,7 +106,8 @@ public class Global extends GlobalSettings
 			"com.frugalbin.inventory.airline.controllers", "com.frugalbin.inventory.airline.controllers.rest",
 			"com.frugalbin.inventory.airline.models", "com.frugalbin.inventory.airline.models.email",
 			"com.frugalbin.inventory.airline.models.sms", "com.frugalbin.inventory.airline.services",
-			"com.frugalbin.inventory.airline.services.impl", "com.frugalbin.inventory.airline.integration" })
+			"com.frugalbin.inventory.airline.services.impl", "com.frugalbin.inventory.airline.integration",
+			"com.frugalbin.inventory.airline.udchalo" })
 	// , "models", "services.service", "services.serviceimpl",
 	// "controllers.bootstrap"})
 	@EnableTransactionManagement

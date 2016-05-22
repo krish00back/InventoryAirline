@@ -1,18 +1,18 @@
 package com.frugalbin.inventory.airline.udchalo.dto.request;
 
-public class UdchaloFlightSearchRequest
+public class UdchaloFindResultRequest
 {
-	private UdchaloFlightSearchBean1 search;
+	private String searchId;
 	private String token;
 
-	public UdchaloFlightSearchBean1 getSearch()
+	public String getSearchId()
 	{
-		return search;
+		return searchId;
 	}
 
-	public void setSearch(UdchaloFlightSearchBean1 search)
+	public void setSearchId(String searchId)
 	{
-		this.search = search;
+		this.searchId = searchId;
 	}
 
 	public String getToken()

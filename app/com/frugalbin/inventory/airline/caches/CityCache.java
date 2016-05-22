@@ -64,6 +64,12 @@ public class CityCache extends AbstractCache
 		city.setCityCode("AGC");
 		city.setCityState("Uttar Pradesh");
 		this.serviceFactory.getCityService().insertCity(city);
+		
+		city = new City();
+		city.setCityName("Bombay");
+		city.setCityCode("BOM");
+		city.setCityState("Maharashtra");
+		this.serviceFactory.getCityService().insertCity(city);
 	}
 
 	@Override

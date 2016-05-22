@@ -10,7 +10,7 @@ public class LegComparator implements Comparator<LegBean>
 	@Override
 	public int compare(LegBean leg1, LegBean leg2)
 	{
-		return leg1.getDepart().compareTo(leg2.getDepart());
+		return leg1.getParsedDepart().compareTo(leg2.getParsedDepart());
 	}
 
 }

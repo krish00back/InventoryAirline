@@ -11,16 +11,15 @@ import com.frugalbin.common.dto.response.inventory.airline.SaveBookingResponseBe
 import com.frugalbin.inventory.airline.enums.Cabins;
 import com.frugalbin.inventory.airline.enums.PassengerType;
 import com.frugalbin.inventory.airline.enums.TripType;
-import com.frugalbin.inventory.airline.udchalo.dto.request.UdchaloFlightSearchRequest;
+import com.frugalbin.inventory.airline.udchalo.dto.request.UdchaloFlightSearchBean;
 import com.frugalbin.inventory.airline.udchalo.dto.response.FaresBean;
 import com.frugalbin.inventory.airline.udchalo.dto.response.LegBean;
 import com.frugalbin.inventory.airline.udchalo.dto.response.LegCombinationsBean;
 import com.frugalbin.inventory.airline.udchalo.dto.response.PassengerFares;
 import com.frugalbin.inventory.airline.udchalo.dto.response.SegmentBean;
 import com.frugalbin.inventory.airline.udchalo.dto.response.TaxesBean;
-import com.frugalbin.inventory.airline.udchalo.dto.response.UdchaloFlightSearchResultBean;
+import com.frugalbin.inventory.airline.udchalo.dto.response.UdchaloFlightGetResultsResponse;
 import com.frugalbin.inventory.airline.udchalo.dto.response.UdchaloPriceCheckResultBean;
-import com.frugalbin.inventory.airline.utils.Constants;
 
 public class DummyData
 {
@@ -28,9 +27,9 @@ public class DummyData
 	private static final Double MIN_FARE = 2500.0;
 	private static final Double MAX_FARE = 6500.0;
 
-	public static UdchaloFlightSearchResultBean getDummyUdchaloFlightSearchResponse() throws ParseException
+	public static UdchaloFlightGetResultsResponse getDummyUdchaloFlightSearchResponse() throws ParseException
 	{
-		UdchaloFlightSearchResultBean response = new UdchaloFlightSearchResultBean();
+		UdchaloFlightGetResultsResponse response = new UdchaloFlightGetResultsResponse();
 
 		// Airlines
 		LinkedHashMap<String, String> airlines = new LinkedHashMap<String, String>();
@@ -55,7 +54,7 @@ public class DummyData
 		response.setAirports(airports);
 
 		// Fares
-		Map<Integer, FaresBean> fares = new LinkedHashMap<Integer, FaresBean>();
+		Map<Long, FaresBean> fares = new LinkedHashMap<Long, FaresBean>();
 
 		// 1 Fare
 		FaresBean fare = new FaresBean();
@@ -107,9 +106,9 @@ public class DummyData
 
 		passengerFare.setTotalTax(1091);
 		passengerFare.setTotalFare(totalFare);
-		passengerFare.setFareBasicCodes(new String[] { "K4MILIPU" });
+		passengerFare.setFareBasisCodes(new String[] { "K4MILIPU" });
 		passengerFare.setServiceClasses(new String[] { "K" });
-		passengerFare.setCabins(new Cabins[] { Cabins.ECONOMY });
+		passengerFare.setCabins(new Cabins[] { Cabins.Economy });
 
 		passengerFares.add(passengerFare);
 
@@ -117,7 +116,7 @@ public class DummyData
 		fare.setBaseTotalFare(4050);
 		fare.setTotalTax(1091);
 		fare.setTotalFare(totalFare);
-		fares.put(0, fare);
+		fares.put(0L, fare);
 
 		// 2 Fare
 		fare = new FaresBean();
@@ -170,9 +169,9 @@ public class DummyData
 
 		passengerFare.setTotalTax(1033);
 		passengerFare.setTotalFare(totalFare);
-		passengerFare.setFareBasicCodes(new String[] { "H4MILIPU" });
+		passengerFare.setFareBasisCodes(new String[] { "H4MILIPU" });
 		passengerFare.setServiceClasses(new String[] { "H" });
-		passengerFare.setCabins(new Cabins[] { Cabins.ECONOMY });
+		passengerFare.setCabins(new Cabins[] { Cabins.Economy });
 
 		passengerFares.add(passengerFare);
 
@@ -180,7 +179,7 @@ public class DummyData
 		fare.setBaseTotalFare(3050);
 		fare.setTotalTax(1033);
 		fare.setTotalFare(totalFare);
-		fares.put(1, fare);
+		fares.put(1L, fare);
 
 		// 3 Fare
 		fare = new FaresBean();
@@ -233,9 +232,9 @@ public class DummyData
 
 		passengerFare.setTotalTax(950);
 		passengerFare.setTotalFare(totalFare);
-		passengerFare.setFareBasicCodes(new String[] { "O4MILIPU" });
+		passengerFare.setFareBasisCodes(new String[] { "O4MILIPU" });
 		passengerFare.setServiceClasses(new String[] { "O" });
-		passengerFare.setCabins(new Cabins[] { Cabins.ECONOMY });
+		passengerFare.setCabins(new Cabins[] { Cabins.Economy });
 
 		passengerFares.add(passengerFare);
 
@@ -243,7 +242,7 @@ public class DummyData
 		fare.setBaseTotalFare(1625);
 		fare.setTotalTax(950);
 		fare.setTotalFare(totalFare);
-		fares.put(2, fare);
+		fares.put(2L, fare);
 
 		response.setFares(fares);
 
@@ -296,10 +295,10 @@ public class DummyData
 		leg.setId(0);
 		leg.setOrigin("PNQ");
 		leg.setDestination("DEL");
-		leg.setDepart(Constants.LEG_DATE_FORMAT.parse("2016-04-13T05:30:00"));
-		leg.setArrive(Constants.LEG_DATE_FORMAT.parse("2016-04-13T07:40:00"));
+		leg.setDepart("2016-04-13T05:30:00");
+		leg.setArrive("2016-04-13T07:40:00");
 		leg.setDuration(130);
-		leg.setCabin(Cabins.ECONOMY);
+		leg.setCabin(Cabins.Economy);
 		leg.setStops(0);
 		leg.setAirline("9W");
 
@@ -307,10 +306,10 @@ public class DummyData
 		SegmentBean segment = new SegmentBean();
 		segment.setOrigin("PNQ");
 		segment.setDestination("DEL");
-		segment.setDepart(Constants.LEG_DATE_FORMAT.parse("2016-04-13T05:30:00"));
-		segment.setArrive(Constants.LEG_DATE_FORMAT.parse("2016-04-13T07:40:00"));
+		segment.setDepart("2016-04-13T05:30:00");
+		segment.setArrive("2016-04-13T07:40:00");
 		segment.setDuration(130);
-		segment.setCabin(Cabins.ECONOMY);
+		segment.setCabin(Cabins.Economy);
 		segment.setMileage(0);
 		segment.setStops(0);
 		segment.setFlightNumber("364");
@@ -326,10 +325,10 @@ public class DummyData
 		leg.setId(1);
 		leg.setOrigin("PNQ");
 		leg.setDestination("DEL");
-		leg.setDepart(Constants.LEG_DATE_FORMAT.parse("2016-04-13T07:35:00"));
-		leg.setArrive(Constants.LEG_DATE_FORMAT.parse("2016-04-13T09:40:00"));
+		leg.setDepart("2016-04-13T07:35:00");
+		leg.setArrive("2016-04-13T09:40:00");
 		leg.setDuration(125);
-		leg.setCabin(Cabins.ECONOMY);
+		leg.setCabin(Cabins.Economy);
 		leg.setStops(0);
 		leg.setAirline("9W");
 
@@ -337,10 +336,10 @@ public class DummyData
 		segment = new SegmentBean();
 		segment.setOrigin("PNQ");
 		segment.setDestination("DEL");
-		segment.setDepart(Constants.LEG_DATE_FORMAT.parse("2016-04-13T07:33:00"));
-		segment.setArrive(Constants.LEG_DATE_FORMAT.parse("2016-04-13T09:40:00"));
+		segment.setDepart("2016-04-13T07:33:00");
+		segment.setArrive("2016-04-13T09:40:00");
 		segment.setDuration(125);
-		segment.setCabin(Cabins.ECONOMY);
+		segment.setCabin(Cabins.Economy);
 		segment.setMileage(0);
 		segment.setStops(0);
 		segment.setFlightNumber("374");
@@ -356,10 +355,10 @@ public class DummyData
 		leg.setId(2);
 		leg.setOrigin("PNQ");
 		leg.setDestination("DEL");
-		leg.setDepart(Constants.LEG_DATE_FORMAT.parse("2016-04-13T11:10:00"));
-		leg.setArrive(Constants.LEG_DATE_FORMAT.parse("2016-04-13T13:25:00"));
+		leg.setDepart("2016-04-13T11:10:00");
+		leg.setArrive("2016-04-13T13:25:00");
 		leg.setDuration(135);
-		leg.setCabin(Cabins.ECONOMY);
+		leg.setCabin(Cabins.Economy);
 		leg.setStops(0);
 		leg.setAirline("9W");
 
@@ -367,10 +366,10 @@ public class DummyData
 		segment = new SegmentBean();
 		segment.setOrigin("PNQ");
 		segment.setDestination("DEL");
-		segment.setDepart(Constants.LEG_DATE_FORMAT.parse("2016-04-13T11:10:00"));
-		segment.setArrive(Constants.LEG_DATE_FORMAT.parse("2016-04-13T13:25:00"));
+		segment.setDepart("2016-04-13T11:10:00");
+		segment.setArrive("2016-04-13T13:25:00");
 		segment.setDuration(135);
-		segment.setCabin(Cabins.ECONOMY);
+		segment.setCabin(Cabins.Economy);
 		segment.setMileage(0);
 		segment.setStops(0);
 		segment.setFlightNumber("366");
@@ -386,10 +385,10 @@ public class DummyData
 		leg.setId(3);
 		leg.setOrigin("PNQ");
 		leg.setDestination("DEL");
-		leg.setDepart(Constants.LEG_DATE_FORMAT.parse("2016-04-13T15:30:00"));
-		leg.setArrive(Constants.LEG_DATE_FORMAT.parse("2016-04-13T17:35:00"));
+		leg.setDepart("2016-04-13T15:30:00");
+		leg.setArrive("2016-04-13T17:35:00");
 		leg.setDuration(125);
-		leg.setCabin(Cabins.ECONOMY);
+		leg.setCabin(Cabins.Economy);
 		leg.setStops(0);
 		leg.setAirline("9W");
 
@@ -397,10 +396,10 @@ public class DummyData
 		segment = new SegmentBean();
 		segment.setOrigin("PNQ");
 		segment.setDestination("DEL");
-		segment.setDepart(Constants.LEG_DATE_FORMAT.parse("2016-04-13T15:30:00"));
-		segment.setArrive(Constants.LEG_DATE_FORMAT.parse("2016-04-13T17:35:00"));
+		segment.setDepart("2016-04-13T15:30:00");
+		segment.setArrive("2016-04-13T17:35:00");
 		segment.setDuration(125);
-		segment.setCabin(Cabins.ECONOMY);
+		segment.setCabin(Cabins.Economy);
 		segment.setMileage(0);
 		segment.setStops(0);
 		segment.setFlightNumber("786");
@@ -416,10 +415,10 @@ public class DummyData
 		leg.setId(4);
 		leg.setOrigin("PNQ");
 		leg.setDestination("DEL");
-		leg.setDepart(Constants.LEG_DATE_FORMAT.parse("2016-04-13T19:55:00"));
-		leg.setArrive(Constants.LEG_DATE_FORMAT.parse("2016-04-13T22:10:00"));
+		leg.setDepart("2016-04-13T19:55:00");
+		leg.setArrive("2016-04-13T22:10:00");
 		leg.setDuration(135);
-		leg.setCabin(Cabins.ECONOMY);
+		leg.setCabin(Cabins.Economy);
 		leg.setStops(0);
 		leg.setAirline("9W");
 
@@ -427,10 +426,10 @@ public class DummyData
 		segment = new SegmentBean();
 		segment.setOrigin("PNQ");
 		segment.setDestination("DEL");
-		segment.setDepart(Constants.LEG_DATE_FORMAT.parse("2016-04-13T19:55:00"));
-		segment.setArrive(Constants.LEG_DATE_FORMAT.parse("2016-04-13T22:10:00"));
+		segment.setDepart("2016-04-13T19:55:00");
+		segment.setArrive("2016-04-13T22:10:00");
 		segment.setDuration(135);
-		segment.setCabin(Cabins.ECONOMY);
+		segment.setCabin(Cabins.Economy);
 		segment.setMileage(0);
 		segment.setStops(0);
 		segment.setFlightNumber("372");
@@ -446,10 +445,10 @@ public class DummyData
 		leg.setId(5);
 		leg.setOrigin("PNQ");
 		leg.setDestination("DEL");
-		leg.setDepart(Constants.LEG_DATE_FORMAT.parse("2016-04-13T23:05:00"));
-		leg.setArrive(Constants.LEG_DATE_FORMAT.parse("2016-04-14T01:15:00"));
+		leg.setDepart("2016-04-13T23:05:00");
+		leg.setArrive("2016-04-14T01:15:00");
 		leg.setDuration(130);
-		leg.setCabin(Cabins.ECONOMY);
+		leg.setCabin(Cabins.Economy);
 		leg.setStops(0);
 		leg.setAirline("9W");
 
@@ -457,10 +456,10 @@ public class DummyData
 		segment = new SegmentBean();
 		segment.setOrigin("PNQ");
 		segment.setDestination("DEL");
-		segment.setDepart(Constants.LEG_DATE_FORMAT.parse("2016-04-13T23:05:00"));
-		segment.setArrive(Constants.LEG_DATE_FORMAT.parse("2016-04-14T01:15:00"));
+		segment.setDepart("2016-04-13T23:05:00");
+		segment.setArrive("2016-04-14T01:15:00");
 		segment.setDuration(130);
-		segment.setCabin(Cabins.ECONOMY);
+		segment.setCabin(Cabins.Economy);
 		segment.setMileage(0);
 		segment.setStops(0);
 		segment.setFlightNumber("7071");
@@ -476,18 +475,18 @@ public class DummyData
 		response.setReturnLegs(new LinkedHashMap<Long, LegBean>());
 
 		// SEARCH
-		UdchaloFlightSearchRequest search = new UdchaloFlightSearchRequest();
+		UdchaloFlightSearchBean search = new UdchaloFlightSearchBean();
 		search.set_id("56f3da509bbf36cda1cdbeea");
-		search.setOrgin("PNQ");
+		search.setOrigin("PNQ");
 		search.setDestination("DEL");
-		search.setDepart("2016-04-13T00:00:00.000Z");
+//		search.setDepartdate("2016-04-13T00:00:00.000Z");
 		search.setAdults(1);
 		search.setInfants(0);
-		search.setTripType(TripType.ONE_WAY);
+		search.setTriptype(TripType.oneway);
 		search.set__v(0);
 		response.setSearch(search);
 
-		response.setSuccess(true);
+		response.setIsSuccess(true);
 
 		return response;
 	}
@@ -497,14 +496,14 @@ public class DummyData
 		UdchaloPriceCheckResultBean response = new UdchaloPriceCheckResultBean();
 
 		// SEARCH
-		UdchaloFlightSearchRequest search = new UdchaloFlightSearchRequest();
+		UdchaloFlightSearchBean search = new UdchaloFlightSearchBean();
 		search.set_id("56f3da509bbf36cda1cdbeea");
-		search.setOrgin("PNQ");
+		search.setOrigin("PNQ");
 		search.setDestination("DEL");
-		search.setDepart("2016-04-13T00:00:00.000Z");
+//		search.setDepartdate("2016-04-13T00:00:00.000Z");
 		search.setAdults(1);
 		search.setInfants(0);
-		search.setTripType(TripType.ONE_WAY);
+		search.setTriptype(TripType.oneway);
 		search.set__v(0);
 		response.setSearch(search);
 
@@ -558,7 +557,7 @@ public class DummyData
 		double totalFare = MIN_FARE + (MAX_FARE - MIN_FARE) * RANDOM.nextDouble();
 		passengerFare.setTotalTax(2011);
 		passengerFare.setTotalFare(totalFare);
-		passengerFare.setFareBasicCodes(new String[] { "O4MILIPU" });
+		passengerFare.setFareBasisCodes(new String[] { "O4MILIPU" });
 		passengerFare.setServiceClasses(new String[] { "O" });
 
 		passengerFares.add(passengerFare);
@@ -577,6 +576,7 @@ public class DummyData
 	{
 		SaveBookingResponseBean response = new SaveBookingResponseBean();
 		response.setBookingId("dfkj343kr34094u");
+		response.setSuccess(true);
 		return response;
 	}
 
